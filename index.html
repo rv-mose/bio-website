@@ -9,8 +9,7 @@
 <body>
 
 <div class="container">
-  <img src="profile.jpg" class="profile">
-  <h2>Arav M</h2>
+
   <p>Web Developer | Freelancer</p>
 <a href="https://instagram.com/aravinth6687" class="link">Instagram</a>
 <a href="https://wa.me/918072646780" target="_blank" class="link">WhatsApp</a>
@@ -18,7 +17,25 @@
 <a href="https://youtube.com/@tamilchrist-w7t?si=vzE72xnmkIOaHGY_" class="link">YouTube</a>
 
 <a href="https://facebook.com/yourprofile" class="link">Facebook</a>
+  <form id="orderForm">
+  <input type="text" id="name" placeholder="Your Name" required>
+
+  <input type="tel" id="phone" placeholder="WhatsApp Number" required>
+
+  <select id="theme" required>
+    <option value="">Choose Theme</option>
+    <option value="Neon">Neon</option>
+    <option value="Glass">Glass</option>
+    <option value="Gradient">Gradient</option>
+  </select>
+
+  <textarea id="links" placeholder="Paste your links (Instagram, YouTube etc)" required></textarea>
+
+  <button type="submit" class="link">Order on WhatsApp 🚀</button>
+</form>
+  <img src="profile.jpg" class="profile">
+  <h2>Arav M</h2>
 
 <script src="script.js"></script>
 </body>
-  </html>
+</html>
