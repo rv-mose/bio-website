@@ -1,33 +1,34 @@
-document.querySelectorAll('.link').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      btn.style.transform = 'scale(1)';
-    }, 150);
+let currentLang = "en";
+
+const seoData = {
+  en: {
+    title: "Professional Website for Business | ₹2999 Website Design",
+    desc: "Get a professional business website for just ₹2999. Mobile friendly, SEO optimized, responsive design, and WhatsApp integration.",
+    key: "business website design, cheap website india, professional website, website for small business"
+  },
+  ta: {
+    title: "உங்கள் வணிகத்திற்கு தொழில்முறை இணையதளம் | ₹2999 மட்டும்",
+    desc: "₹2999க்கு உங்கள் வணிகத்திற்கு தொழில்முறை இணையதளம். மொபைல் நட்பு, SEO அமைப்பு, மற்றும் WhatsApp இணைப்பு.",
+    key: "வணிக இணையதளம், குறைந்த விலையில் இணையதளம், தொழில்முறை இணையதளம், சிறு வணிக இணையதளம்"
+  }
+};
+
+function toggleLang(){
+  const elements = document.querySelectorAll("[data-en]");
+  const btn = document.querySelector(".lang-btn");
+
+  currentLang = currentLang === "en" ? "ta" : "en";
+
+  // Change page text
+  elements.forEach(el => {
+    el.textContent = el.getAttribute(`data-${currentLang}`);
   });
-});
-document.getElementById("orderForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  alert("Thank you! We will contact you on WhatsApp.");
-});
-document.getElementById("orderForm").addEventListener("submit", function(e) {
-  e.preventDefault();
 
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let theme = document.getElementById("theme").value;
-  let links = document.getElementById("links").value;
+  // Change SEO meta tags
+  document.getElementById("meta-title").textContent = seoData[currentLang].title;
+  document.getElementById("meta-desc").setAttribute("content", seoData[currentLang].desc);
+  document.getElementById("meta-key").setAttribute("content", seoData[currentLang].key);
+  document.documentElement.lang = currentLang;
 
-  let message = `Hi Arav,%0A
-I want an Instagram Bio Website 🚀%0A
-%0A
-Name: ${name}%0A
-Theme: ${theme}%0A
-Links: ${links}`;
-
-  let whatsappNumber = "918072646780"; // ← your number (no +)
-
-  let url = `https://wa.me/${whatsappNumber}?text=${message}`;
-
-  window.open(url, "_blank");
-});
+  btn.textContent = currentLang === "en" ? "தமிழ்" : "EN";
+}
